@@ -29,10 +29,10 @@ function YouTubeIcon() {
 }
 
 const socials: { icon: () => ReactNode; href: string; label: string }[] = [
-  { icon: GithubIcon, href: "#", label: "GitHub" },
-  { icon: LinkedInIcon, href: "#", label: "LinkedIn" },
-  { icon: YouTubeIcon, href: "#", label: "YouTube" },
-  { icon: () => <Send size={18} />, href: "#", label: "Telegram" },
+  { icon: GithubIcon, href: "https://github.com/bogdankf1", label: "GitHub" },
+  { icon: LinkedInIcon, href: "https://www.linkedin.com/in/bogdankf1/", label: "LinkedIn" },
+  { icon: YouTubeIcon, href: "https://www.youtube.com/@bogdanburukhin2436", label: "YouTube" },
+  { icon: () => <Send size={18} />, href: "https://t.me/bohdan_burukhin", label: "Telegram" },
 ];
 
 export default function Footer() {
@@ -63,16 +63,16 @@ export default function Footer() {
 
         {/* Email */}
         <a
-          href="mailto:hello@bohdan.dev"
+          href="mailto:bohdan.burukhin@gmail.com"
           className="flex items-center gap-2 text-sm text-neutral-400 transition-colors hover:text-white"
         >
           <Mail size={14} />
-          hello@bohdan.dev
+          bohdan.burukhin@gmail.com
         </a>
 
         {/* Copyright */}
         <p className="text-xs text-neutral-600">
-          &copy; {new Date().getFullYear()} Bohdan
+          &copy; {new Date().getFullYear()} Bohdan Burukhin
         </p>
       </motion.div>
     </footer>
