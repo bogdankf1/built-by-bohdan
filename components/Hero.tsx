@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const words = ["things", "apps", "tools", "experiences", "ideas"];
+const words = ["things", "apps", "tools", "ideas"];
 
 export default function Hero() {
   const [wordIndex, setWordIndex] = useState(0);
