@@ -20,19 +20,16 @@ export default function Nav() {
       }`}
     >
       <a href="#" className="text-lg font-semibold tracking-tight">
-        Bohdan
+        Built by Bohdan
       </a>
       <div className="flex gap-6 text-sm text-neutral-400">
-        <a
-          href="#work"
-          className="transition-colors hover:text-white"
-        >
+        <a href="#about" className="transition-colors hover:text-white">
+          About
+        </a>
+        <a href="#work" className="transition-colors hover:text-white">
           Work
         </a>
-        <a
-          href="#contact"
-          className="transition-colors hover:text-white"
-        >
+        <a href="#contact" className="transition-colors hover:text-white">
           Contact
         </a>
       </div>

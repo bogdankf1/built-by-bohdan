@@ -16,6 +16,20 @@ const config: Config = {
         sans: ["var(--font-geist-sans)"],
         mono: ["var(--font-geist-mono)"],
       },
+      keyframes: {
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        "orb-pulse": {
+          "0%, 100%": { transform: "scale(1)", opacity: "0.15" },
+          "50%": { transform: "scale(1.15)", opacity: "0.25" },
+        },
+      },
+      animation: {
+        marquee: "marquee 30s linear infinite",
+        "orb-pulse": "orb-pulse 8s ease-in-out infinite",
+      },
     },
   },
   plugins: [],

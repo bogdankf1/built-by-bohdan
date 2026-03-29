@@ -4,20 +4,20 @@ import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Bohdan — Full-Stack Developer & Builder",
+  title: "Built by Bohdan — Full-Stack Developer & Builder",
   description:
     "Full-stack developer building web apps, tools, and learning experiences. Explore my work.",
   openGraph: {
-    title: "Bohdan — Full-Stack Developer & Builder",
+    title: "Built by Bohdan — Full-Stack Developer & Builder",
     description:
       "Full-stack developer building web apps, tools, and learning experiences.",
-    url: "https://bohdan.dev",
-    siteName: "Bohdan",
+    url: "https://built-by-bohdan.com",
+    siteName: "Built by Bohdan",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bohdan — Full-Stack Developer & Builder",
+    title: "Built by Bohdan — Full-Stack Developer & Builder",
   },
   robots: {
     index: true,

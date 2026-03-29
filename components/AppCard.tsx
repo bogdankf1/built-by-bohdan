@@ -6,19 +6,22 @@ import type { App } from "@/lib/apps";
 interface AppCardProps {
   app: App;
   index: number;
+  direction?: "left" | "right";
 }
 
-export default function AppCard({ app, index }: AppCardProps) {
+export default function AppCard({ app, index, direction }: AppCardProps) {
+  const xOffset = direction === "left" ? -60 : direction === "right" ? 60 : 0;
+
   return (
     <motion.a
       href={app.url}
       target="_blank"
       rel="noopener noreferrer"
       className="group block border border-white/5 bg-white/[0.02] p-6 rounded-md transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-[0_0_20px_rgba(59,130,246,0.08)]"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, x: xOffset, y: direction ? 0 : 20 }}
+      whileInView={{ opacity: 1, x: 0, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.4, delay: index * 0.1 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
     >
       <div className="flex items-start justify-between gap-4">
         <h3 className="text-xl font-semibold tracking-tight">{app.name}</h3>

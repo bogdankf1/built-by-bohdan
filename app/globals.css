@@ -23,3 +23,26 @@ body::after {
   background-repeat: repeat;
   background-size: 256px 256px;
 }
+
+/* Animated underline for section headings */
+.animated-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.animated-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background: #3b82f6;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s ease;
+}
+
+.animated-underline.visible::after {
+  transform: scaleX(1);
+}

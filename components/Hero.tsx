@@ -1,16 +1,23 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
-const lines = [
-  { text: "I build things", className: "font-semibold" },
-  { text: "for the web.", className: "text-neutral-400" },
-];
+const words = ["things", "apps", "tools", "experiences", "ideas"];
 
 export default function Hero() {
+  const [wordIndex, setWordIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setWordIndex((prev) => (prev + 1) % words.length);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative flex min-h-screen flex-col items-center justify-center px-6 overflow-hidden">
-      {/* Dot grid background */}
+      {/* Dot grid background — pure CSS, GPU composited */}
       <div
         className="absolute inset-0 opacity-[0.07]"
         style={{
@@ -20,19 +27,47 @@ export default function Hero() {
         }}
       />
 
+      {/* Animated gradient orb */}
+      <div
+        className="absolute animate-orb-pulse w-[500px] h-[500px] rounded-full pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%)",
+        }}
+      />
+
       <div className="relative z-10 max-w-3xl text-center">
         <h1 className="text-5xl sm:text-6xl lg:text-7xl tracking-tight leading-[1.1]">
-          {lines.map((line, i) => (
-            <motion.span
-              key={i}
-              className={`block ${line.className}`}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.2 }}
-            >
-              {line.text}
-            </motion.span>
-          ))}
+          <motion.span
+            className="block font-semibold"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            I build{" "}
+            <span className="inline-block min-w-[200px] sm:min-w-[280px] text-left">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={words[wordIndex]}
+                  className="inline-block text-accent"
+                  initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  exit={{ opacity: 0, y: -20, filter: "blur(4px)" }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {words[wordIndex]}
+                </motion.span>
+              </AnimatePresence>
+            </span>
+          </motion.span>
+          <motion.span
+            className="block text-neutral-400"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            for the web.
+          </motion.span>
         </h1>
 
         <motion.p

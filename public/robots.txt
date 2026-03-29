@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://bohdan.dev/sitemap.xml
+Sitemap: https://built-by-bohdan.com/sitemap.xml

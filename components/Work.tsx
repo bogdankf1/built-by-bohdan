@@ -18,7 +18,12 @@ export default function Work() {
       </motion.h2>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {apps.map((app, i) => (
-          <AppCard key={app.name} app={app} index={i} />
+          <AppCard
+            key={app.name}
+            app={app}
+            index={i}
+            direction={i % 2 === 0 ? "left" : "right"}
+          />
         ))}
       </div>
     </section>
