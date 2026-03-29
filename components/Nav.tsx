@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Logo from "./Logo";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -19,7 +20,8 @@ export default function Nav() {
           : "bg-transparent"
       }`}
     >
-      <a href="#" className="text-lg font-semibold tracking-tight">
+      <a href="#" className="flex items-center gap-2 text-lg font-semibold tracking-tight">
+        <Logo size={28} />
         Built by Bohdan
       </a>
       <div className="flex gap-6 text-sm text-neutral-400">
