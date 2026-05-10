@@ -1,4 +1,4 @@
-export type AppStatus = "Live" | "In Progress";
+export type AppStatus = "Live" | "In Progress" | "Offline" | "Redesigning";
 
 export interface App {
   name: string;
@@ -27,21 +27,28 @@ export const apps: App[] = [
     name: "Wealth Vault",
     description: "Personal finance SaaS for tracking and growing wealth",
     tags: ["Next.js", "Supabase"],
-    status: "In Progress",
+    status: "Live",
     url: "https://wealth-vault-inky.vercel.app",
   },
   {
     name: "Meal Craft",
-    description: "AI-powered meal planning assistant",
+    description: "AI-powered meal planning assistant — currently being redesigned",
     tags: ["Next.js", "Claude API"],
-    status: "In Progress",
+    status: "Redesigning",
     url: "https://meal-craft-five.vercel.app",
   },
   {
     name: "ML Playground",
     description: "Interactive machine learning demos in the browser",
     tags: ["TensorFlow.js", "Three.js"],
-    status: "Live",
+    status: "Offline",
     url: "https://ml-playground-sigma.vercel.app",
+  },
+  {
+    name: "Port Pulse",
+    description: "Live portfolio tracker from broker screenshots",
+    tags: ["Next.js", "Claude API"],
+    status: "In Progress",
+    url: "https://port-pulse-seven.vercel.app",
   },
 ];

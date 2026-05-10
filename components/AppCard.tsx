@@ -1,13 +1,20 @@
 "use client";
 
 import { motion } from "framer-motion";
-import type { App } from "@/lib/apps";
+import type { App, AppStatus } from "@/lib/apps";
 
 interface AppCardProps {
   app: App;
   index: number;
   direction?: "left" | "right";
 }
+
+const statusStyles: Record<AppStatus, string> = {
+  Live: "bg-emerald-500/10 text-emerald-400",
+  "In Progress": "bg-amber-500/10 text-amber-400",
+  Redesigning: "bg-sky-500/10 text-sky-400",
+  Offline: "bg-neutral-500/10 text-neutral-400",
+};
 
 export default function AppCard({ app, index, direction }: AppCardProps) {
   const xOffset = direction === "left" ? -60 : direction === "right" ? 60 : 0;
@@ -26,11 +33,7 @@ export default function AppCard({ app, index, direction }: AppCardProps) {
       <div className="flex items-start justify-between gap-4">
         <h3 className="text-xl font-semibold tracking-tight">{app.name}</h3>
         <span
-          className={`shrink-0 rounded px-2 py-0.5 text-xs font-mono ${
-            app.status === "Live"
-              ? "bg-emerald-500/10 text-emerald-400"
-              : "bg-amber-500/10 text-amber-400"
-          }`}
+          className={`shrink-0 rounded px-2 py-0.5 text-xs font-mono ${statusStyles[app.status]}`}
         >
           {app.status}
         </span>
