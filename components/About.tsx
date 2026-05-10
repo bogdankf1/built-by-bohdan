@@ -5,19 +5,19 @@ import { Rocket, Layers, Sparkles } from "lucide-react";
 
 const highlights = [
   {
+    icon: Sparkles,
+    title: "AI-Powered",
+    description: "Building with Claude, vision & ML",
+  },
+  {
     icon: Rocket,
-    title: "5 Apps Shipped",
+    title: "6 Apps Shipped",
     description: "From idea to production",
   },
   {
     icon: Layers,
-    title: "Full-Stack",
-    description: "Frontend to backend to deploy",
-  },
-  {
-    icon: Sparkles,
-    title: "AI-Powered",
-    description: "Building with Claude & TensorFlow.js",
+    title: "Full-Stack Expertise",
+    description: "Years of frontend, backend, and deploy",
   },
 ];
 
@@ -31,9 +31,10 @@ export default function About() {
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
       >
-        I&apos;m Bohdan — a full-stack developer who loves turning ideas into
-        real products. From AI-powered tools to motorsport calendars — if it
-        can be built, I&apos;m building it.
+        I&apos;m Bohdan — I build AI-powered apps and tools, backed by years
+        of professional full-stack engineering. From Claude-powered assistants
+        to live data dashboards — if it can be built with AI, I&apos;m
+        building it.
       </motion.p>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-12">

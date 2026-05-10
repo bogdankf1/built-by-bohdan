@@ -4,15 +4,17 @@ import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Built by Bohdan — Full-Stack Developer & Builder",
+  title: "Built by Bohdan — AI Engineer & Builder",
   description:
-    "Built by Bohdan — portfolio of Bohdan Burukhin, a full-stack developer building web apps, AI-powered tools, and interactive experiences.",
+    "Built by Bohdan — portfolio of Bohdan Burukhin, an AI engineer building AI-powered apps and tools, backed by professional full-stack expertise.",
   keywords: [
     "Built by Bohdan",
     "Bohdan Burukhin",
+    "AI engineer",
+    "AI developer",
+    "AI-powered apps",
+    "Claude developer",
     "full-stack developer",
-    "web developer portfolio",
-    "React developer",
     "Next.js developer",
   ],
   authors: [{ name: "Bohdan Burukhin" }],
@@ -22,9 +24,9 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Built by Bohdan — Full-Stack Developer & Builder",
+    title: "Built by Bohdan — AI Engineer & Builder",
     description:
-      "Portfolio of Bohdan Burukhin — full-stack developer building web apps, AI-powered tools, and interactive experiences.",
+      "Portfolio of Bohdan Burukhin — AI engineer building AI-powered apps and tools, backed by professional full-stack expertise.",
     url: "https://built-by-bohdan.com",
     siteName: "Built by Bohdan",
     locale: "en_US",
@@ -32,9 +34,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Built by Bohdan — Full-Stack Developer & Builder",
+    title: "Built by Bohdan — AI Engineer & Builder",
     description:
-      "Portfolio of Bohdan Burukhin — full-stack developer building web apps, AI-powered tools, and interactive experiences.",
+      "Portfolio of Bohdan Burukhin — AI engineer building AI-powered apps and tools, backed by professional full-stack expertise.",
   },
   verification: {
     google: "sppIBCb_jg-ZKDvamrfY5SRI7BWy01_AM68urJvPUSk",
@@ -68,7 +70,7 @@ export default function RootLayout({
               "@type": "Person",
               name: "Bohdan Burukhin",
               url: "https://built-by-bohdan.com",
-              jobTitle: "Full-Stack Developer",
+              jobTitle: "AI Engineer",
               sameAs: [
                 "https://github.com/bogdankf1",
                 "https://www.linkedin.com/in/bogdankf1/",

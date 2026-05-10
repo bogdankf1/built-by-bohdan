@@ -76,7 +76,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
         >
-          Full-stack developer. Turning ideas into apps.
+          AI engineer — built on full-stack expertise.
         </motion.p>
       </div>
     </section>
