@@ -17,6 +17,20 @@ export const apps: App[] = [
     url: "https://race-grid.com",
   },
   {
+    name: "Port Pulse",
+    description: "Live portfolio tracker from broker screenshots",
+    tags: ["Next.js", "Claude API"],
+    status: "In Progress",
+    url: "https://port-pulse-seven.vercel.app",
+  },
+  {
+    name: "Bolsa",
+    description: "Retro CRT terminal for paper trading stocks & ETFs",
+    tags: ["Next.js", "Supabase", "Alpaca"],
+    status: "In Progress",
+    url: "https://bolsa-dun.vercel.app",
+  },
+  {
     name: "Dash Dot",
     description: "Duolingo-style Morse code learning app",
     tags: ["Next.js", "Supabase"],
@@ -43,12 +57,5 @@ export const apps: App[] = [
     tags: ["TensorFlow.js", "Three.js"],
     status: "Offline",
     url: "https://ml-playground-sigma.vercel.app",
-  },
-  {
-    name: "Port Pulse",
-    description: "Live portfolio tracker from broker screenshots",
-    tags: ["Next.js", "Claude API"],
-    status: "In Progress",
-    url: "https://port-pulse-seven.vercel.app",
   },
 ];

@@ -6,7 +6,7 @@ import AppCard from "./AppCard";
 
 export default function Work() {
   return (
-    <section id="work" className="px-6 py-24 max-w-5xl mx-auto">
+    <section id="work" className="px-6 py-24 max-w-5xl mx-auto overflow-x-clip">
       <motion.h2
         className="text-3xl font-semibold tracking-tight mb-12"
         initial={{ opacity: 0, y: 10 }}
