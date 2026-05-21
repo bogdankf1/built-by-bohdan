@@ -1,84 +1,131 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { ExternalLink } from "lucide-react";
+import { apps, type App } from "@/lib/apps";
+import { slugify } from "@/lib/slug";
 
-const words = ["things", "apps", "tools", "ideas"];
+const statusInk: Record<App["status"], string> = {
+  Live: "text-emerald-700 dark:text-emerald-400",
+  "In Progress": "text-stamp",
+  Redesigning: "text-sky-700 dark:text-sky-400",
+  Offline: "text-ink-dim",
+};
 
 export default function Hero() {
-  const [wordIndex, setWordIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setWordIndex((prev) => (prev + 1) % words.length);
-    }, 2500);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <section className="relative flex min-h-screen flex-col items-center justify-center px-6 overflow-hidden">
-      {/* Dot grid background — pure CSS, GPU composited */}
-      <div
-        className="absolute inset-0 opacity-[0.07]"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle, #f0f0f0 1px, transparent 1px)",
-          backgroundSize: "24px 24px",
-        }}
-      />
+    <section
+      id="apps"
+      className="relative min-h-screen flex flex-col px-4 sm:px-8 pt-20 sm:pt-24 pb-8 overflow-x-clip"
+    >
+      <div className="title-block justify-between">
+        <div className="flex items-center gap-3">
+          <span className="title-block-tag">FIG.01</span>
+          <span className="hidden sm:inline">Builds · Index</span>
+          <span className="sm:hidden">Builds</span>
+        </div>
+        <span>Scale 1:1</span>
+      </div>
 
-      {/* Animated gradient orb */}
-      <div
-        className="absolute animate-orb-pulse w-[500px] h-[500px] rounded-full pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%)",
-        }}
-      />
+      <div className="flex-1 flex flex-col justify-center max-w-6xl mx-auto w-full py-8">
+        <div className="relative">
+          <div className="absolute -top-2 right-0 hidden md:flex items-start gap-2 font-mono text-[10px] uppercase tracking-widest text-ink-dim">
+            <div className="border-t border-dashed border-ink-dim w-16 mt-2.5" />
+            <div className="border-l border-ink-dim pl-2 py-0.5">
+              Since 2018
+            </div>
+          </div>
 
-      <div className="relative z-10 max-w-3xl text-center">
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl tracking-tight leading-[1.1]">
-          <motion.span
-            className="block font-semibold"
-            initial={{ opacity: 0, y: 20 }}
+          <motion.h1
+            className="font-sans text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.02] uppercase"
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
           >
-            I build{" "}
-            <span className="inline-block min-w-[200px] sm:min-w-[280px] text-left">
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={words[wordIndex]}
-                  className="inline-block text-accent"
-                  initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  exit={{ opacity: 0, y: -20, filter: "blur(4px)" }}
-                  transition={{ duration: 0.3 }}
-                >
-                  {words[wordIndex]}
-                </motion.span>
-              </AnimatePresence>
-            </span>
-          </motion.span>
-          <motion.span
-            className="block text-neutral-400"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            for the web.
-          </motion.span>
-        </h1>
+            Bohdan
+            <br />
+            Burukhin
+          </motion.h1>
 
-        <motion.p
-          className="mt-6 text-lg text-neutral-500"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
+          <motion.p
+            className="mt-5 font-mono text-[11px] sm:text-xs uppercase tracking-widest text-ink-dim"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.12 }}
+          >
+            Software Engineer · 8+ yrs · Web · Backend · Mobile
+          </motion.p>
+
+          <motion.p
+            className="mt-3 font-mono text-sm sm:text-base text-ink-dim max-w-md"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            I build <span className="text-stamp font-semibold">things</span>{" "}
+            with AI — engineered, not prompted.
+          </motion.p>
+        </div>
+
+        <div className="mt-10 sm:mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
+          {apps.map((app, i) => (
+            <HeroCard key={app.name} app={app} index={i} />
+          ))}
+        </div>
+      </div>
+
+      <div className="title-block justify-between">
+        <span>Rev 2026.05</span>
+        <a
+          href="#about"
+          className="flex items-center gap-2 hover:text-ink transition-colors"
         >
-          AI engineer — built on full-stack expertise.
-        </motion.p>
+          <span>↓ Profile</span>
+        </a>
       </div>
     </section>
+  );
+}
+
+function HeroCard({ app, index }: { app: App; index: number }) {
+  return (
+    <motion.div
+      className="relative"
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, delay: 0.25 + index * 0.05 }}
+    >
+      <Link
+        href={`/apps/${slugify(app.name)}`}
+        className="brackets group flex h-full flex-col p-4 border border-ink/25 hover:border-ink/70 transition-colors bg-paper/40"
+      >
+        <span className="br br-tl" />
+        <span className="br br-tr" />
+        <span className="br br-bl" />
+        <span className="br br-br" />
+
+        <div className="font-mono text-[10px] uppercase tracking-widest text-ink-dim flex items-center justify-between">
+          <span>[{String(index + 1).padStart(2, "0")}]</span>
+          <span className={`pr-7 ${statusInk[app.status]}`}>{app.status}</span>
+        </div>
+        <div className="mt-2 text-base font-semibold flex items-center gap-2 font-sans uppercase tracking-tight pr-7">
+          <span className="text-stamp">◇</span>
+          {app.name}
+        </div>
+        <p className="mt-1 font-mono text-[11px] text-ink-dim leading-relaxed">
+          {app.description}
+        </p>
+      </Link>
+      <a
+        href={app.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Open ${app.name} in new tab`}
+        className="absolute top-3 right-3 z-10 flex h-5 w-5 items-center justify-center text-ink-dim hover:text-stamp transition-colors"
+      >
+        <ExternalLink size={13} />
+      </a>
+    </motion.div>
   );
 }

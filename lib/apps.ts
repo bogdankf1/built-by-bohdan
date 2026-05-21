@@ -6,6 +6,7 @@ export interface App {
   tags: string[];
   status: AppStatus;
   url: string;
+  featured?: boolean;
 }
 
 export const apps: App[] = [
@@ -15,6 +16,7 @@ export const apps: App[] = [
     tags: ["React"],
     status: "Live",
     url: "https://race-grid.com",
+    featured: true,
   },
   {
     name: "Port Pulse",
@@ -22,6 +24,7 @@ export const apps: App[] = [
     tags: ["Next.js", "Claude API"],
     status: "In Progress",
     url: "https://port-pulse-seven.vercel.app",
+    featured: true,
   },
   {
     name: "Bolsa",
@@ -29,6 +32,7 @@ export const apps: App[] = [
     tags: ["Next.js", "Supabase", "Alpaca"],
     status: "In Progress",
     url: "https://bolsa-dun.vercel.app",
+    featured: true,
   },
   {
     name: "Dash Dot",

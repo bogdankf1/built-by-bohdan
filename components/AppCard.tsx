@@ -1,7 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { ExternalLink } from "lucide-react";
 import type { App, AppStatus } from "@/lib/apps";
+import { slugify } from "@/lib/slug";
 
 interface AppCardProps {
   app: App;
@@ -9,46 +12,59 @@ interface AppCardProps {
   direction?: "left" | "right";
 }
 
-const statusStyles: Record<AppStatus, string> = {
-  Live: "bg-emerald-500/10 text-emerald-400",
-  "In Progress": "bg-amber-500/10 text-amber-400",
-  Redesigning: "bg-sky-500/10 text-sky-400",
-  Offline: "bg-neutral-500/10 text-neutral-400",
+const statusInk: Record<AppStatus, string> = {
+  Live: "text-emerald-700 dark:text-emerald-400",
+  "In Progress": "text-stamp",
+  Redesigning: "text-sky-700 dark:text-sky-400",
+  Offline: "text-ink-dim",
 };
 
 export default function AppCard({ app, index, direction }: AppCardProps) {
-  const xOffset = direction === "left" ? -60 : direction === "right" ? 60 : 0;
+  const xOffset = direction === "left" ? -40 : direction === "right" ? 40 : 0;
 
   return (
-    <motion.a
-      href={app.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group block border border-white/5 bg-white/[0.02] p-6 rounded-md transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-[0_0_20px_rgba(59,130,246,0.08)]"
-      initial={{ opacity: 0, x: xOffset, y: direction ? 0 : 20 }}
+    <motion.div
+      className="relative"
+      initial={{ opacity: 0, x: xOffset, y: direction ? 0 : 16 }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ duration: 0.4, delay: index * 0.08 }}
     >
-      <div className="flex items-start justify-between gap-4">
-        <h3 className="text-xl font-semibold tracking-tight">{app.name}</h3>
-        <span
-          className={`shrink-0 rounded px-2 py-0.5 text-xs font-mono ${statusStyles[app.status]}`}
-        >
-          {app.status}
-        </span>
-      </div>
-      <p className="mt-2 text-sm text-neutral-400">{app.description}</p>
-      <div className="mt-4 flex flex-wrap gap-2">
-        {app.tags.map((tag) => (
-          <span
-            key={tag}
-            className="rounded bg-white/5 px-2 py-0.5 text-xs font-mono text-neutral-500"
-          >
-            {tag}
-          </span>
-        ))}
-      </div>
-    </motion.a>
+      <Link
+        href={`/apps/${slugify(app.name)}`}
+        className="brackets group flex h-full flex-col p-5 border border-ink/25 hover:border-ink/70 transition-colors bg-paper/40"
+      >
+        <span className="br br-tl" />
+        <span className="br br-tr" />
+        <span className="br br-bl" />
+        <span className="br br-br" />
+
+        <div className="font-mono text-[10px] uppercase tracking-widest text-ink-dim flex items-center justify-between">
+          <span>[{String(index + 1).padStart(2, "0")}]</span>
+          <span className={`pr-7 ${statusInk[app.status]}`}>{app.status}</span>
+        </div>
+        <h3 className="mt-2 text-xl font-semibold font-sans uppercase tracking-tight flex items-center gap-2 pr-7">
+          <span className="text-stamp">◇</span>
+          {app.name}
+        </h3>
+        <p className="mt-2 font-mono text-xs text-ink-dim leading-relaxed">
+          {app.description}
+        </p>
+        <div className="mt-4 flex flex-wrap gap-x-3 gap-y-1 font-mono text-[10px] uppercase tracking-widest text-ink-dim">
+          {app.tags.map((tag) => (
+            <span key={tag}>· {tag}</span>
+          ))}
+        </div>
+      </Link>
+      <a
+        href={app.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Open ${app.name} in new tab`}
+        className="absolute top-4 right-4 z-10 flex h-5 w-5 items-center justify-center text-ink-dim hover:text-stamp transition-colors"
+      >
+        <ExternalLink size={14} />
+      </a>
+    </motion.div>
   );
 }

@@ -5,18 +5,20 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Built by Bohdan — AI Engineer & Builder",
+  title: "Built by Bohdan — Software Engineer Building with AI",
   description:
-    "Built by Bohdan — portfolio of Bohdan Burukhin, an AI engineer building AI-powered apps and tools, backed by professional full-stack expertise.",
+    "Portfolio of Bohdan Burukhin — software engineer with 8+ years across web, backend, and mobile, now building AI-powered apps and tools. Engineered, not prompted.",
   keywords: [
     "Built by Bohdan",
     "Bohdan Burukhin",
+    "Software engineer",
+    "Full-stack engineer",
+    "Frontend engineer",
+    "Mobile developer",
     "AI engineer",
-    "AI developer",
-    "AI-powered apps",
     "Claude developer",
-    "full-stack developer",
     "Next.js developer",
+    "React developer",
   ],
   authors: [{ name: "Bohdan Burukhin" }],
   creator: "Bohdan Burukhin",
@@ -25,9 +27,9 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Built by Bohdan — AI Engineer & Builder",
+    title: "Built by Bohdan — Software Engineer Building with AI",
     description:
-      "Portfolio of Bohdan Burukhin — AI engineer building AI-powered apps and tools, backed by professional full-stack expertise.",
+      "Portfolio of Bohdan Burukhin — software engineer with 8+ years across web, backend, and mobile, now building AI-powered apps and tools.",
     url: "https://built-by-bohdan.com",
     siteName: "Built by Bohdan",
     locale: "en_US",
@@ -35,9 +37,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Built by Bohdan — AI Engineer & Builder",
+    title: "Built by Bohdan — Software Engineer Building with AI",
     description:
-      "Portfolio of Bohdan Burukhin — AI engineer building AI-powered apps and tools, backed by professional full-stack expertise.",
+      "Portfolio of Bohdan Burukhin — software engineer with 8+ years across web, backend, and mobile, now building AI-powered apps and tools.",
   },
   verification: {
     google: "sppIBCb_jg-ZKDvamrfY5SRI7BWy01_AM68urJvPUSk",
@@ -61,8 +63,14 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${GeistSans.variable} ${GeistMono.variable}`}
+      suppressHydrationWarning
     >
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme');var d=t===null?true:t==='dark';if(d)document.documentElement.classList.add('dark');}catch(e){}})();`,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -71,7 +79,7 @@ export default function RootLayout({
               "@type": "Person",
               name: "Bohdan Burukhin",
               url: "https://built-by-bohdan.com",
-              jobTitle: "AI Engineer",
+              jobTitle: "Software Engineer",
               sameAs: [
                 "https://github.com/bogdankf1",
                 "https://www.linkedin.com/in/bogdankf1/",
@@ -82,7 +90,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="font-sans antialiased">
+      <body className="font-mono antialiased bg-paper text-ink">
         {children}
         <Analytics />
       </body>

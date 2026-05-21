@@ -9,40 +9,37 @@ export default function Logo({ size = 32 }: { size?: number }) {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-label="Built by Bohdan logo"
+      className="text-ink"
     >
-      {/* Three B's stacked — geometric monogram */}
-      {/* Top B */}
       <text
         x="2"
         y="15"
-        fontFamily="var(--font-geist-sans), system-ui, sans-serif"
+        fontFamily="var(--font-geist-mono), monospace"
         fontWeight="700"
         fontSize="14"
-        fill="#3b82f6"
-        opacity="0.5"
+        fill="currentColor"
+        opacity="0.45"
       >
         B
       </text>
-      {/* Middle B */}
       <text
         x="12"
         y="27"
-        fontFamily="var(--font-geist-sans), system-ui, sans-serif"
+        fontFamily="var(--font-geist-mono), monospace"
         fontWeight="700"
         fontSize="14"
-        fill="#3b82f6"
-        opacity="0.75"
+        fill="currentColor"
+        opacity="0.7"
       >
         B
       </text>
-      {/* Bottom B */}
       <text
         x="22"
         y="39"
-        fontFamily="var(--font-geist-sans), system-ui, sans-serif"
+        fontFamily="var(--font-geist-mono), monospace"
         fontWeight="700"
         fontSize="14"
-        fill="#3b82f6"
+        fill="currentColor"
         opacity="1"
       >
         B

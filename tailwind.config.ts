@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: "class",
   content: [
     "./app/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
@@ -9,8 +10,14 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        bg: "#080808",
-        accent: "#3b82f6",
+        paper: "rgb(var(--paper-rgb) / <alpha-value>)",
+        "paper-deep": "rgb(var(--paper-deep-rgb) / <alpha-value>)",
+        ink: "rgb(var(--ink-rgb) / <alpha-value>)",
+        "ink-dim": "rgb(var(--ink-dim-rgb) / <alpha-value>)",
+        "ink-faint": "rgb(var(--ink-faint-rgb) / <alpha-value>)",
+        stamp: "rgb(var(--stamp-rgb) / <alpha-value>)",
+        accent: "rgb(var(--ink-rgb) / <alpha-value>)",
+        bg: "rgb(var(--paper-rgb) / <alpha-value>)",
       },
       fontFamily: {
         sans: ["var(--font-geist-sans)"],
@@ -21,14 +28,9 @@ const config: Config = {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-50%)" },
         },
-        "orb-pulse": {
-          "0%, 100%": { transform: "scale(1)", opacity: "0.15" },
-          "50%": { transform: "scale(1.15)", opacity: "0.25" },
-        },
       },
       animation: {
         marquee: "marquee 30s linear infinite",
-        "orb-pulse": "orb-pulse 8s ease-in-out infinite",
       },
     },
   },
