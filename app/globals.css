@@ -125,6 +125,10 @@ body::after {
   opacity: 1;
 }
 
+.brackets-on > .br {
+  opacity: 1;
+}
+
 .brackets > .br-tl {
   top: -1px;
   left: -1px;
