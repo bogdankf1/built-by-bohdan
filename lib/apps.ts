@@ -7,6 +7,7 @@ export interface App {
   status: AppStatus;
   url: string;
   featured?: boolean;
+  hidden?: boolean;
 }
 
 export const apps: App[] = [
@@ -61,5 +62,6 @@ export const apps: App[] = [
     tags: ["TensorFlow.js", "Three.js"],
     status: "Offline",
     url: "https://ml-playground-sigma.vercel.app",
+    hidden: true,
   },
 ];

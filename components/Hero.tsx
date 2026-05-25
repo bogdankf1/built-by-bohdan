@@ -69,9 +69,11 @@ export default function Hero() {
         </div>
 
         <div className="mt-10 sm:mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
-          {apps.map((app, i) => (
-            <HeroCard key={app.name} app={app} index={i} />
-          ))}
+          {apps
+            .filter((a) => !a.hidden)
+            .map((app, i) => (
+              <HeroCard key={app.name} app={app} index={i} />
+            ))}
         </div>
       </div>
 

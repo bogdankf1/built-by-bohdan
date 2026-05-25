@@ -8,7 +8,7 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
 export function generateStaticParams() {
-  return apps.map((a) => ({ slug: slugify(a.name) }));
+  return apps.filter((a) => !a.hidden).map((a) => ({ slug: slugify(a.name) }));
 }
 
 export async function generateMetadata({
