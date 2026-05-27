@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Send, Mail } from "lucide-react";
 import type { ReactNode } from "react";
+import { useInView } from "@/lib/use-in-view";
 
 function GithubIcon() {
   return (
@@ -48,6 +48,8 @@ const socials: { icon: () => ReactNode; href: string; label: string }[] = [
 ];
 
 export default function Footer() {
+  const { ref, inView } = useInView<HTMLDivElement>();
+
   return (
     <footer
       id="contact"
@@ -58,12 +60,9 @@ export default function Footer() {
           <span className="title-block-tag">FIG.03</span>
           <span>Contact</span>
         </div>
-        <motion.div
-          className="flex flex-col items-start gap-10 mt-6"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+        <div
+          ref={ref}
+          className={`${inView ? "fade-up" : "opacity-0"} flex flex-col items-start gap-10 mt-6`}
         >
           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight uppercase font-sans">
             Let&apos;s build something together
@@ -71,16 +70,13 @@ export default function Footer() {
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full">
             {socials.map(({ icon: Icon, href, label }, i) => (
-              <motion.a
+              <a
                 key={label}
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="brackets group flex items-center gap-3 border border-ink/25 hover:border-ink/70 transition-colors p-4 bg-paper/40"
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: i * 0.08 }}
+                className={`${inView ? "fade-up" : "opacity-0"} brackets group flex items-center gap-3 border border-ink/25 hover:border-ink/70 transition-colors p-4 bg-paper/40`}
+                style={{ animationDelay: `${0.15 + i * 0.08}s` }}
               >
                 <span className="br br-tl" />
                 <span className="br br-tr" />
@@ -92,7 +88,7 @@ export default function Footer() {
                 <span className="font-mono text-[11px] uppercase tracking-widest text-ink-dim group-hover:text-ink transition-colors">
                   {label}
                 </span>
-              </motion.a>
+              </a>
             ))}
           </div>
 
@@ -107,7 +103,7 @@ export default function Footer() {
           <p className="font-mono text-[10px] uppercase tracking-widest text-ink-dim">
             &copy; {new Date().getFullYear()} Bohdan Burukhin · Rev 2026.05
           </p>
-        </motion.div>
+        </div>
       </div>
     </footer>
   );

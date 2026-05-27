@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import { apps, type App } from "@/lib/apps";
@@ -14,6 +11,8 @@ const statusInk: Record<App["status"], string> = {
 };
 
 export default function Hero() {
+  const visible = apps.filter((a) => !a.hidden);
+
   return (
     <section
       id="apps"
@@ -37,43 +36,32 @@ export default function Hero() {
             </div>
           </div>
 
-          <motion.h1
-            className="font-sans text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.02] uppercase"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
+          <h1 className="fade-up font-sans text-5xl sm:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.02] uppercase">
             Bohdan
             <br />
             Burukhin
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            className="mt-5 font-mono text-[11px] sm:text-xs uppercase tracking-widest text-ink-dim"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.12 }}
+          <p
+            className="fade-up mt-5 font-mono text-[11px] sm:text-xs uppercase tracking-widest text-ink-dim"
+            style={{ animationDelay: "0.12s" }}
           >
             Software Engineer · 8+ yrs · Web · Backend · Mobile
-          </motion.p>
+          </p>
 
-          <motion.p
-            className="mt-3 font-mono text-sm sm:text-base text-ink-dim max-w-md"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+          <p
+            className="fade-up mt-3 font-mono text-sm sm:text-base text-ink-dim max-w-md"
+            style={{ animationDelay: "0.2s" }}
           >
             I build <span className="text-stamp font-semibold">things</span>{" "}
             with AI — engineered, not prompted.
-          </motion.p>
+          </p>
         </div>
 
         <div className="mt-10 sm:mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
-          {apps
-            .filter((a) => !a.hidden)
-            .map((app, i) => (
-              <HeroCard key={app.name} app={app} index={i} />
-            ))}
+          {visible.map((app, i) => (
+            <HeroCard key={app.name} app={app} index={i} />
+          ))}
         </div>
       </div>
 
@@ -92,11 +80,9 @@ export default function Hero() {
 
 function HeroCard({ app, index }: { app: App; index: number }) {
   return (
-    <motion.div
-      className="relative"
-      initial={{ opacity: 0, y: 12 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: 0.25 + index * 0.05 }}
+    <div
+      className="fade-up relative"
+      style={{ animationDelay: `${0.25 + index * 0.05}s` }}
     >
       <Link
         href={`/apps/${slugify(app.name)}`}
@@ -128,6 +114,6 @@ function HeroCard({ app, index }: { app: App; index: number }) {
       >
         <ExternalLink size={13} />
       </a>
-    </motion.div>
+    </div>
   );
 }

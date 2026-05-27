@@ -1,3 +1,12 @@
+> **⚠️ HISTORICAL — superseded by the implemented codebase.**
+>
+> This brief reflects the original ask. The actual site has diverged: it now
+> includes a light/dark theme toggle (the brief said dark-only), uses a
+> blueprint/cyanotype aesthetic instead of the proposed electric-blue or
+> acid-green accent, has 8 apps instead of 5, and ships per-app detail pages
+> with screenshots. The current source of truth is `CLAUDE.md` plus the code
+> itself. Do **not** treat this file as a spec when making changes.
+
 # Portfolio Site — Claude Code Brief
 
 ## Overview

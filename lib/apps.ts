@@ -15,7 +15,6 @@ export interface App {
   tags: string[];
   status: AppStatus;
   url: string;
-  featured?: boolean;
   hidden?: boolean;
   longDescription?: string;
   features?: string[];
@@ -29,7 +28,6 @@ export const apps: App[] = [
     tags: ["React"],
     status: "Live",
     url: "https://race-grid.com",
-    featured: true,
     longDescription:
       "One calendar for every major motorsport series — F1, IndyCar, WEC, IMSA, NASCAR, DTM, GT World Challenge, and more. Pick the series you care about, switch between month, week, and day views, and never miss a quali, sprint, or main race again.\n\nBuilt mobile-first and fully responsive: scan the next race on your phone in the morning, plan your weekend on a tablet, and dig into the full season grid on your laptop — same data, same UI, no compromises.",
     features: [
@@ -43,7 +41,7 @@ export const apps: App[] = [
     ],
     screenshots: [
       {
-        src: "/apps/race-grid/iphone-series.png",
+        src: "/apps/race-grid/iphone-series.webp",
         alt: "Race Grid series listing on iPhone",
         caption: "Series view · iPhone",
         device: "phone",
@@ -51,20 +49,20 @@ export const apps: App[] = [
         height: 2864,
       },
       {
-        src: "/apps/race-grid/ipad-calendar.png",
+        src: "/apps/race-grid/ipad-calendar.webp",
         alt: "Race Grid daily calendar on iPad",
         caption: "Calendar daily view · iPad",
         device: "tablet",
-        width: 3118,
-        height: 2280,
+        width: 1920,
+        height: 1404,
       },
       {
-        src: "/apps/race-grid/macbook-monthview.png",
+        src: "/apps/race-grid/macbook-monthview.webp",
         alt: "Race Grid month calendar in browser on MacBook",
         caption: "Calendar month view · MacBook",
         device: "desktop",
-        width: 3818,
-        height: 2408,
+        width: 1920,
+        height: 1211,
       },
     ],
   },
@@ -74,7 +72,6 @@ export const apps: App[] = [
     tags: ["Next.js", "Claude API"],
     status: "Live",
     url: "https://port-pulse-seven.vercel.app",
-    featured: true,
     longDescription:
       "Port Pulse turns a screenshot of your broker into a live portfolio dashboard. Drop in a screenshot from any broker, let Claude vision extract your holdings, then watch the portfolio update against the live market — sector breakdowns, risk metrics, P&L per position, and a heatmap view sized by allocation.\n\nNo CSV exports, no manual data entry, no broker integrations. Screenshot in, live portfolio out.",
     features: [
@@ -89,7 +86,7 @@ export const apps: App[] = [
     ],
     screenshots: [
       {
-        src: "/apps/port-pulse/iphone-holdings.png",
+        src: "/apps/port-pulse/iphone-holdings.webp",
         alt: "Port Pulse holdings list on iPhone",
         caption: "Holdings list · iPhone",
         device: "phone",
@@ -97,20 +94,20 @@ export const apps: App[] = [
         height: 2864,
       },
       {
-        src: "/apps/port-pulse/ipad-heatmap.png",
+        src: "/apps/port-pulse/ipad-heatmap.webp",
         alt: "Port Pulse heatmap view on iPad",
         caption: "Heatmap view · iPad",
         device: "tablet",
-        width: 3118,
-        height: 2280,
+        width: 1920,
+        height: 1404,
       },
       {
-        src: "/apps/port-pulse/macbook-table.png",
+        src: "/apps/port-pulse/macbook-table.webp",
         alt: "Port Pulse table view in browser on MacBook",
         caption: "Table view · MacBook",
         device: "desktop",
-        width: 3812,
-        height: 2402,
+        width: 1920,
+        height: 1210,
       },
     ],
   },
@@ -120,7 +117,6 @@ export const apps: App[] = [
     tags: ["Next.js", "Supabase", "Alpaca"],
     status: "Live",
     url: "https://bolsa-dun.vercel.app",
-    featured: true,
   },
   {
     name: "AI Paddock",
@@ -129,7 +125,6 @@ export const apps: App[] = [
     tags: ["Tauri", "React", "PixiJS"],
     status: "In Progress",
     url: "https://github.com/bogdankf1/paddock-ai",
-    featured: true,
   },
   {
     name: "Dash Dot",
@@ -151,7 +146,7 @@ export const apps: App[] = [
     ],
     screenshots: [
       {
-        src: "/apps/dash-dot/iphone-chapters.png",
+        src: "/apps/dash-dot/iphone-chapters.webp",
         alt: "Dash Dot chapter list on iPhone",
         caption: "Chapters · iPhone",
         device: "phone",
@@ -159,20 +154,20 @@ export const apps: App[] = [
         height: 3017,
       },
       {
-        src: "/apps/dash-dot/ipad-progress.png",
+        src: "/apps/dash-dot/ipad-progress.webp",
         alt: "Dash Dot progress dashboard on iPad",
         caption: "Progress dashboard · iPad",
         device: "tablet",
-        width: 3118,
-        height: 2280,
+        width: 1920,
+        height: 1404,
       },
       {
-        src: "/apps/dash-dot/macbook-exercise.png",
+        src: "/apps/dash-dot/macbook-exercise.webp",
         alt: "Dash Dot exercise view in browser on MacBook",
         caption: "Exercise view · MacBook",
         device: "desktop",
-        width: 3812,
-        height: 2402,
+        width: 1920,
+        height: 1210,
       },
     ],
   },
