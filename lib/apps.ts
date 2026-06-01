@@ -21,6 +21,10 @@ export interface App {
   screenshots?: Screenshot[];
 }
 
+export function isLaunchable(app: App): boolean {
+  return app.status !== "In Progress" && app.status !== "Redesigning";
+}
+
 export const apps: App[] = [
   {
     name: "Race Grid",
@@ -168,6 +172,51 @@ export const apps: App[] = [
         device: "desktop",
         width: 1920,
         height: 1210,
+      },
+    ],
+  },
+  {
+    name: "Jogora",
+    description: "Duolingo-style platform for learning game theory",
+    tags: ["Next.js", "Supabase"],
+    status: "Live",
+    url: "https://jogora.vercel.app",
+    longDescription:
+      "Jogora teaches game theory the way you'd learn a language — short lessons, daily streaks, XP, and a glossary that grows as you go. Concepts come in intuition-first: read a scenario, build a payoff matrix, find the dominant move, then meet the formal definition. Manuscript-style typography keeps it feeling closer to a textbook than a flashcard app.\n\nWorks fully anonymous out of the box — progress lives in localStorage, no login required. Sign in with Google to sync your XP, streak, and lesson history across devices. Every term you encounter lands in a searchable glossary, grouped by the chapter where it first appeared.",
+    features: [
+      "Chapter-based curriculum — Foundations, Core Concepts, and beyond",
+      "Mixed exercise types — multiple choice, matrix building, numeric input",
+      "Intuition-first pedagogy — scenario → matrix → formal definition",
+      "Searchable glossary auto-built from the lessons you've completed",
+      "XP, hearts, and a streak counter to keep you coming back",
+      "Anonymous-first — full app works without an account",
+      "Optional Google sign-in syncs progress across phone, tablet, and laptop",
+      "Manuscript-style typography with light and dark modes",
+    ],
+    screenshots: [
+      {
+        src: "/apps/jogora/iphone-glossary.webp",
+        alt: "Jogora glossary on iPhone",
+        caption: "Glossary · iPhone",
+        device: "phone",
+        width: 1304,
+        height: 3017,
+      },
+      {
+        src: "/apps/jogora/ipad-lesson.webp",
+        alt: "Jogora lesson exercise on iPad",
+        caption: "Lesson exercise · iPad",
+        device: "tablet",
+        width: 2280,
+        height: 3118,
+      },
+      {
+        src: "/apps/jogora/macbook-chapter.webp",
+        alt: "Jogora chapter overview in browser on MacBook",
+        caption: "Chapter overview · MacBook",
+        device: "desktop",
+        width: 3824,
+        height: 2416,
       },
     ],
   },

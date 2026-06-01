@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
-import { apps, type App } from "@/lib/apps";
+import { apps, isLaunchable, type App } from "@/lib/apps";
 import { slugify } from "@/lib/slug";
 
 const statusInk: Record<App["status"], string> = {
@@ -105,15 +105,17 @@ function HeroCard({ app, index }: { app: App; index: number }) {
           {app.description}
         </p>
       </Link>
-      <a
-        href={app.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={`Open ${app.name} in new tab`}
-        className="absolute top-3 right-3 z-10 flex h-5 w-5 items-center justify-center text-ink-dim hover:text-stamp transition-colors"
-      >
-        <ExternalLink size={13} />
-      </a>
+      {isLaunchable(app) && (
+        <a
+          href={app.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Open ${app.name} in new tab`}
+          className="absolute top-3 right-3 z-10 flex h-5 w-5 items-center justify-center text-ink-dim hover:text-stamp transition-colors"
+        >
+          <ExternalLink size={13} />
+        </a>
+      )}
     </div>
   );
 }

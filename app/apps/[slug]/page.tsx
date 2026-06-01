@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
 import { ExternalLink, ArrowLeft } from "lucide-react";
-import { apps, type Screenshot } from "@/lib/apps";
+import { apps, isLaunchable, type Screenshot } from "@/lib/apps";
 import { slugify } from "@/lib/slug";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
@@ -108,26 +108,28 @@ export default async function AppPage({
           </p>
         </div>
 
-        <div className="mt-12 flex flex-wrap gap-3">
-          <a
-            href={app.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="brackets group inline-flex items-center gap-3 px-6 py-4 border border-ink/40 hover:border-stamp transition-colors"
-          >
-            <span className="br br-tl" />
-            <span className="br br-tr" />
-            <span className="br br-bl" />
-            <span className="br br-br" />
-            <span className="font-mono text-sm uppercase tracking-widest text-ink group-hover:text-stamp transition-colors">
-              Launch app
-            </span>
-            <ExternalLink
-              size={16}
-              className="text-ink group-hover:text-stamp transition-colors"
-            />
-          </a>
-        </div>
+        {isLaunchable(app) && (
+          <div className="mt-12 flex flex-wrap gap-3">
+            <a
+              href={app.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="brackets group inline-flex items-center gap-3 px-6 py-4 border border-ink/40 hover:border-stamp transition-colors"
+            >
+              <span className="br br-tl" />
+              <span className="br br-tr" />
+              <span className="br br-bl" />
+              <span className="br br-br" />
+              <span className="font-mono text-sm uppercase tracking-widest text-ink group-hover:text-stamp transition-colors">
+                Launch app
+              </span>
+              <ExternalLink
+                size={16}
+                className="text-ink group-hover:text-stamp transition-colors"
+              />
+            </a>
+          </div>
+        )}
 
         {app.longDescription && (
           <div className="mt-20">
