@@ -54,7 +54,7 @@ export default function Hero() {
             style={{ animationDelay: "0.2s" }}
           >
             I build <span className="text-stamp font-semibold">things</span>{" "}
-            with AI — engineered, not prompted.
+            with AI. Engineered, not prompted.
           </p>
         </div>
 

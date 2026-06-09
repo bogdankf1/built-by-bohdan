@@ -21,7 +21,7 @@ export async function generateMetadata({
   const app = apps.find((a) => slugify(a.name) === slug);
   if (!app) return {};
   return {
-    title: `${app.name} — Built by Bohdan`,
+    title: `${app.name} - Built by Bohdan`,
     description: app.description,
   };
 }

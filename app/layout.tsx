@@ -5,9 +5,9 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Built by Bohdan — Software Engineer Building with AI",
+  title: "Built by Bohdan - Software Engineer Building with AI",
   description:
-    "Portfolio of Bohdan Burukhin — software engineer with 8+ years across web, backend, and mobile, now building AI-powered apps and tools. Engineered, not prompted.",
+    "Portfolio of Bohdan Burukhin, software engineer with 8+ years across web, backend, and mobile, now building AI-powered apps and tools. Engineered, not prompted.",
   keywords: [
     "Built by Bohdan",
     "Bohdan Burukhin",
@@ -27,9 +27,9 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Built by Bohdan — Software Engineer Building with AI",
+    title: "Built by Bohdan - Software Engineer Building with AI",
     description:
-      "Portfolio of Bohdan Burukhin — software engineer with 8+ years across web, backend, and mobile, now building AI-powered apps and tools.",
+      "Portfolio of Bohdan Burukhin, software engineer with 8+ years across web, backend, and mobile, now building AI-powered apps and tools.",
     url: "https://built-by-bohdan.com",
     siteName: "Built by Bohdan",
     locale: "en_US",
@@ -37,9 +37,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Built by Bohdan — Software Engineer Building with AI",
+    title: "Built by Bohdan - Software Engineer Building with AI",
     description:
-      "Portfolio of Bohdan Burukhin — software engineer with 8+ years across web, backend, and mobile, now building AI-powered apps and tools.",
+      "Portfolio of Bohdan Burukhin, software engineer with 8+ years across web, backend, and mobile, now building AI-powered apps and tools.",
   },
   verification: {
     google: "sppIBCb_jg-ZKDvamrfY5SRI7BWy01_AM68urJvPUSk",
