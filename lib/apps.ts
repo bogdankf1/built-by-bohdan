@@ -27,6 +27,43 @@ export function isLaunchable(app: App): boolean {
 
 export const apps: App[] = [
   {
+    name: "Alvorada",
+    description: "Civilization-style 4X strategy game in the browser",
+    tags: ["TypeScript", "React", "Canvas"],
+    status: "Live",
+    url: "https://alvorada-omega.vercel.app",
+    longDescription:
+      "Alvorada is a turn-based 4X strategy game in the spirit of Civilization, played entirely in the browser. Found cities, work the land around them, send warriors and settlers across a hex world, and climb a tech tree that runs from Pottery and Bronze Working in the Ancient Era all the way to the Industrial age. Win by conquest or by the weight of your civilization's score.\n\nUnder the parchment map is a pure, deterministic game engine: no backend, no image assets, every tile, unit, and banner painted procedurally onto a canvas. A whole match is captured by its config and action log, so replays come out bit-identical, which is the foundation a future multiplayer mode will stand on. The rival AI plays by the same rules and the same fog you do, and the Counsel screen shows every decision it made with the reason behind it.",
+    features: [
+      "Hex-map 4X loop: explore, expand, build, and fight for victory by conquest or score",
+      "Tech tree from the Ancient Era to the Industrial age, from Pottery to Electricity",
+      "Found and grow cities, assign specialists, and build wonders like the Pyramids and the Great Library",
+      "Workers reshape the land: farms, mines, roads, lumber mills, and cleared forest",
+      "Units promote with XP, fortify, embark, and go obsolete as better ones arrive",
+      "Explainable AI: the Counsel screen lists every rival decision with its stated reason",
+      "Deterministic engine: a match replays bit for bit from its action log alone",
+      "Runs fully client-side: autosave each round, export and import saves, no account needed",
+    ],
+    screenshots: [
+      {
+        src: "/apps/alvorada/ipad-tech-tree.webp",
+        alt: "Alvorada tech tree on iPad",
+        caption: "Tech tree · iPad",
+        device: "tablet",
+        width: 3118,
+        height: 2280,
+      },
+      {
+        src: "/apps/alvorada/macbook-map.webp",
+        alt: "Alvorada hex world map with a city and unit in browser on MacBook",
+        caption: "World map · MacBook",
+        device: "desktop",
+        width: 3802,
+        height: 2414,
+      },
+    ],
+  },
+  {
     name: "Race Grid",
     description: "Motorsport calendar combining F1, WEC & IndyCar",
     tags: ["React"],
@@ -306,9 +343,47 @@ export const apps: App[] = [
   {
     name: "Wealth Vault",
     description: "Personal finance SaaS for tracking and growing wealth",
-    tags: ["Next.js", "Supabase"],
-    status: "Redesigning",
+    tags: ["Next.js", "FastAPI", "LangGraph"],
+    status: "Live",
     url: "https://wealth-vault-inky.vercel.app",
+    longDescription:
+      "Wealth Vault is a full personal finance platform: income, expenses, accounts, portfolio, goals, budgets, subscriptions, installments, debts, and taxes, all in one place. Track net worth across multiple currencies with live exchange rates, connect a bank through Monobank, and read every module back as charts: subscriptions and expenses by category, how income is allocated, and where your money actually sits.\n\nThe AI work runs deeper than a chat box. Drop in a bank statement or a screenshot and a vision pipeline pulls out the transactions, categorizes them, and learns from your corrections. The Ask AI button is a LangGraph agent with a real routing, compute, retrieve, and validate graph, so questions like \"can I afford this?\" or \"how did spending change last quarter?\" get answered from your own numbers and streamed back token by token. Underneath it, a pgvector RAG store embeds your documents and records for semantic search and citations.",
+    features: [
+      "Ten finance modules: income, expenses, accounts, portfolio, goals, budgets, subscriptions, installments, debts, taxes",
+      "Net worth across multiple currencies with live exchange rates and a fallback cache",
+      "Bank sync through Monobank, plus statement and screenshot import via a vision pipeline",
+      "AI categorization that learns from your corrections",
+      "Ask AI: a LangGraph agent that answers from your real numbers with built-in financial tools, streamed token by token",
+      "pgvector RAG store for semantic search and cited answers over your own records",
+      "AI insights surface spending patterns, savings opportunities, and anomalies",
+      "Tier-based access with Stripe billing, PWA install, mobile nav, and light and dark themes",
+    ],
+    screenshots: [
+      {
+        src: "/apps/wealth-vault/iphone-portfolio.webp",
+        alt: "Wealth Vault Apple stock asset detail on iPhone",
+        caption: "Asset detail · iPhone",
+        device: "phone",
+        width: 1304,
+        height: 3017,
+      },
+      {
+        src: "/apps/wealth-vault/ipad-analytics.webp",
+        alt: "Wealth Vault financial analytics charts on iPad",
+        caption: "Financial analytics · iPad",
+        device: "tablet",
+        width: 2280,
+        height: 3118,
+      },
+      {
+        src: "/apps/wealth-vault/macbook-dashboard.webp",
+        alt: "Wealth Vault dashboard with net worth and analytics in browser on MacBook",
+        caption: "Dashboard · MacBook",
+        device: "desktop",
+        width: 3802,
+        height: 2414,
+      },
+    ],
   },
   {
     name: "Meal Craft",
