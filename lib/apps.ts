@@ -198,12 +198,34 @@ export const apps: App[] = [
     ],
   },
   {
-    name: "AI Paddock",
+    name: "Paddock AI",
     description:
-      "Desktop app that visualizes Claude Code agent activity as a race car at Spa-Francorchamps",
+      "Desktop app that races Claude Code agents around Spa-Francorchamps",
     tags: ["Tauri", "React", "PixiJS"],
     status: "In Progress",
     url: "https://github.com/bogdankf1/paddock-ai",
+    longDescription:
+      "Paddock AI is a desktop app that wraps Claude Code and turns every running agent into a race car on the Spa-Francorchamps circuit. The metaphor is load-bearing: planning is a pit stop, executing is a hot lap, tokens are fuel, and errors raise yellow or red flags over the track. Type a prompt, hit run, and watch the agent drive its lap in real time.\n\nEach prompt spawns its own car, colored and shaped by model family, so an Opus run and a Sonnet run can share the track at once with separate fuel gauges and transcripts. Follow-up messages resume the same agent, and a weather overlay shifts as error states pile up across the grid. It is built as a native shell in Tauri and Rust, with a Pixi.js canvas for the track and React for the panels, driving the claude CLI as a streaming subprocess.",
+    features: [
+      "Every Claude Code agent becomes a car driving a lap of Spa-Francorchamps",
+      "Load-bearing metaphor: planning is a pit stop, executing a hot lap, tokens are fuel",
+      "Multi-agent: each prompt spawns its own car, colored and shaped by model family (F1, GT, kart)",
+      "Cars move between pit lane and track as Claude lifecycle events fire",
+      "Per-agent fuel gauge tracks token burn in real time",
+      "Structured transcript per agent, with follow-ups that resume the same run",
+      "Weather overlay reacts to error state across the whole grid",
+      "Native shell in Tauri and Rust, Pixi.js track, React panels, claude CLI subprocess",
+    ],
+    screenshots: [
+      {
+        src: "/apps/paddock-ai/macbook-track.webp",
+        alt: "Paddock AI desktop app showing two Claude agents as cars on the Spa-Francorchamps track on MacBook",
+        caption: "Two agents on track · MacBook",
+        device: "desktop",
+        width: 3802,
+        height: 2414,
+      },
+    ],
   },
   {
     name: "Dash Dot",
