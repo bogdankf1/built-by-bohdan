@@ -15,6 +15,7 @@ export interface App {
   tags: string[];
   status: AppStatus;
   url: string;
+  github?: string;
   hidden?: boolean;
   longDescription?: string;
   features?: string[];
@@ -32,6 +33,7 @@ export const apps: App[] = [
     tags: ["React"],
     status: "Live",
     url: "https://race-grid.com",
+    github: "https://github.com/bogdankf1/race-grid",
     longDescription:
       "One calendar for every major motorsport series: F1, IndyCar, WEC, IMSA, NASCAR, DTM, GT World Challenge, and more. Pick the series you care about, switch between month, week, and day views, and never miss a quali, sprint, or main race again.\n\nBuilt mobile-first and fully responsive: scan the next race on your phone in the morning, plan your weekend on a tablet, and dig into the full season grid on your laptop. Same data, same UI, no compromises.",
     features: [
@@ -76,6 +78,7 @@ export const apps: App[] = [
     tags: ["Next.js", "FastAPI", "LangGraph"],
     status: "Live",
     url: "https://wealth-vault-inky.vercel.app",
+    github: "https://github.com/bogdankf1/wealth-vault",
     longDescription:
       "Wealth Vault is a full personal finance platform: income, expenses, accounts, portfolio, goals, budgets, subscriptions, installments, debts, and taxes, all in one place. Track net worth across multiple currencies with live exchange rates, connect a bank through Monobank, and read every module back as charts: subscriptions and expenses by category, how income is allocated, and where your money actually sits.\n\nThe AI work runs deeper than a chat box. Drop in a bank statement or a screenshot and a vision pipeline pulls out the transactions, categorizes them, and learns from your corrections. The Ask AI button is a LangGraph agent with a real routing, compute, retrieve, and validate graph, so questions like \"can I afford this?\" or \"how did spending change last quarter?\" get answered from your own numbers and streamed back token by token. Underneath it, a pgvector RAG store embeds your documents and records for semantic search and citations.",
     features: [
@@ -121,6 +124,7 @@ export const apps: App[] = [
     tags: ["TypeScript", "React", "Canvas"],
     status: "Live",
     url: "https://alvorada-omega.vercel.app",
+    github: "https://github.com/bogdankf1/alvorada",
     longDescription:
       "Alvorada is a turn-based 4X strategy game in the spirit of Civilization, played entirely in the browser. Found cities, work the land around them, send warriors and settlers across a hex world, and climb a tech tree that runs from Pottery and Bronze Working in the Ancient Era all the way to the Industrial age. Win by conquest or by the weight of your civilization's score.\n\nUnder the parchment map is a pure, deterministic game engine: no backend, no image assets, every tile, unit, and banner painted procedurally onto a canvas. A whole match is captured by its config and action log, so replays come out bit-identical, which is the foundation a future multiplayer mode will stand on. The rival AI plays by the same rules and the same fog you do, and the Counsel screen shows every decision it made with the reason behind it.",
     features: [
@@ -158,6 +162,7 @@ export const apps: App[] = [
     tags: ["Next.js", "Supabase", "Alpaca"],
     status: "Live",
     url: "https://bolsa-dun.vercel.app",
+    github: "https://github.com/bogdankf1/bolsa",
     longDescription:
       "Bolsa is a phosphor-green CRT terminal for paper trading stocks and ETFs against Alpaca's paper account. Watchlists, candlestick and line charts across nine timeframes, market and limit orders, live quotes, portfolio P&L, and a full trade log. Keyboard-first, no chrome, no real money on the line.\n\nThe twist is the MCP server: every tool the UI exposes is also wired up for Claude (or any MCP-aware agent) to drive directly. Start a named session, watch the agent log its reasoning in real time over Supabase realtime, place orders, run backtests on historical bars. The human spectates through the same view, and can hit STOP at any moment.",
     features: [
@@ -203,6 +208,7 @@ export const apps: App[] = [
     tags: ["Next.js", "Supabase"],
     status: "Live",
     url: "https://dash-dot-five.vercel.app",
+    github: "https://github.com/bogdankf1/dash-dot",
     longDescription:
       "Learn Morse code the same way you'd learn a language: short daily lessons, mnemonics, hearts, and a streak you don't want to break. Dash Dot teaches every letter and number with audio, visual, and tap-along practice, and tracks every lesson, accuracy %, and letter mastered.\n\nChapters introduce a handful of characters at a time, easy pairs first, harder ones later. Practice mode mixes everything you've learned so far. No install, just open the URL and pick up where you left off.",
     features: [
@@ -248,6 +254,7 @@ export const apps: App[] = [
     tags: ["Next.js", "Supabase"],
     status: "Live",
     url: "https://jogora.vercel.app",
+    github: "https://github.com/bogdankf1/jogora",
     longDescription:
       "Jogora teaches game theory the way you'd learn a language: short lessons, daily streaks, XP, and a glossary that grows as you go. Concepts come in intuition-first: read a scenario, build a payoff matrix, find the dominant move, then meet the formal definition. Manuscript-style typography keeps it feeling closer to a textbook than a flashcard app.\n\nWorks fully anonymous out of the box. Progress lives in localStorage, no login required. Sign in with Google to sync your XP, streak, and lesson history across devices. Every term you encounter lands in a searchable glossary, grouped by the chapter where it first appeared.",
     features: [
@@ -293,6 +300,7 @@ export const apps: App[] = [
     tags: ["Next.js", "TypeScript"],
     status: "Live",
     url: "https://amperender.vercel.app",
+    github: "https://github.com/bogdankf1/amperender",
     longDescription:
       "Amperender teaches electricity from the absolute basics (what is voltage?) up through real electronics, with a live circuit simulator at the heart of every concept. Drag a slider, watch the current change, then meet Ohm's law once the intuition is already there. Water-pipe analogies first, formal equations after.\n\nThree modes work together: Learning runs the structured curriculum (units → lessons → exercises, Duolingo-style), Workshop offers pre-built scenarios to poke at (Ohm's law, voltage divider, transistor as switch, MCU drives an LED), and Sandbox is a blank schematic where you wire up your own circuits with batteries, resistors, LEDs, switches, and ammeters. Every concept is technically honest, no misleading oversimplification.",
     features: [
@@ -338,6 +346,7 @@ export const apps: App[] = [
     tags: ["Next.js", "Claude API"],
     status: "Live",
     url: "https://port-pulse-seven.vercel.app",
+    github: "https://github.com/bogdankf1/port-pulse",
     longDescription:
       "Port Pulse turns a screenshot of your broker into a live portfolio dashboard. Drop in a screenshot from any broker, let Claude vision extract your holdings, then watch the portfolio update against the live market: sector breakdowns, risk metrics, P&L per position, and a heatmap view sized by allocation.\n\nNo CSV exports, no manual data entry, no broker integrations. Screenshot in, live portfolio out.",
     features: [
@@ -384,6 +393,7 @@ export const apps: App[] = [
     tags: ["Tauri", "React", "PixiJS"],
     status: "In Progress",
     url: "https://github.com/bogdankf1/paddock-ai",
+    github: "https://github.com/bogdankf1/paddock-ai",
     longDescription:
       "Paddock AI is a desktop app that wraps Claude Code and turns every running agent into a race car on the Spa-Francorchamps circuit. The metaphor is load-bearing: planning is a pit stop, executing is a hot lap, tokens are fuel, and errors raise yellow or red flags over the track. Type a prompt, hit run, and watch the agent drive its lap in real time.\n\nEach prompt spawns its own car, colored and shaped by model family, so an Opus run and a Sonnet run can share the track at once with separate fuel gauges and transcripts. Follow-up messages resume the same agent, and a weather overlay shifts as error states pile up across the grid. It is built as a native shell in Tauri and Rust, with a Pixi.js canvas for the track and React for the panels, driving the claude CLI as a streaming subprocess.",
     features: [
@@ -413,6 +423,7 @@ export const apps: App[] = [
     tags: ["Next.js", "Claude API"],
     status: "Redesigning",
     url: "https://meal-craft-five.vercel.app",
+    github: "https://github.com/bogdankf1/meal-craft",
   },
   {
     name: "ML Playground",
