@@ -28,12 +28,18 @@ function YouTubeIcon() {
   );
 }
 
-const socials: { icon: () => ReactNode; href: string; label: string }[] = [
+const socials: {
+  icon: () => ReactNode;
+  href: string;
+  label: string;
+  hidden?: boolean;
+}[] = [
   { icon: GithubIcon, href: "https://github.com/bogdankf1", label: "GitHub" },
   {
     icon: LinkedInIcon,
     href: "https://www.linkedin.com/in/bogdankf1/",
     label: "LinkedIn",
+    hidden: true,
   },
   {
     icon: YouTubeIcon,
@@ -69,27 +75,29 @@ export default function Footer() {
           </h2>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full">
-            {socials.map(({ icon: Icon, href, label }, i) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`${inView ? "fade-up" : "opacity-0"} brackets group flex items-center gap-3 border border-ink/25 hover:border-ink/70 transition-colors p-4 bg-paper/40`}
-                style={{ animationDelay: `${0.15 + i * 0.08}s` }}
-              >
-                <span className="br br-tl" />
-                <span className="br br-tr" />
-                <span className="br br-bl" />
-                <span className="br br-br" />
-                <div className="text-ink">
-                  <Icon />
-                </div>
-                <span className="font-mono text-[11px] uppercase tracking-widest text-ink-dim group-hover:text-ink transition-colors">
-                  {label}
-                </span>
-              </a>
-            ))}
+            {socials
+              .filter((s) => !s.hidden)
+              .map(({ icon: Icon, href, label }, i) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${inView ? "fade-up" : "opacity-0"} brackets group flex items-center gap-3 border border-ink/25 hover:border-ink/70 transition-colors p-4 bg-paper/40`}
+                  style={{ animationDelay: `${0.15 + i * 0.08}s` }}
+                >
+                  <span className="br br-tl" />
+                  <span className="br br-tr" />
+                  <span className="br br-bl" />
+                  <span className="br br-br" />
+                  <div className="text-ink">
+                    <Icon />
+                  </div>
+                  <span className="font-mono text-[11px] uppercase tracking-widest text-ink-dim group-hover:text-ink transition-colors">
+                    {label}
+                  </span>
+                </a>
+              ))}
           </div>
 
           <a

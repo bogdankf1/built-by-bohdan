@@ -82,7 +82,7 @@ export default function RootLayout({
               jobTitle: "Software Engineer",
               sameAs: [
                 "https://github.com/bogdankf1",
-                "https://www.linkedin.com/in/bogdankf1/",
+                // "https://www.linkedin.com/in/bogdankf1/",
                 "https://www.youtube.com/@bogdanburukhin2436",
                 "https://t.me/bohdan_burukhin",
               ],
